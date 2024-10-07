@@ -2,23 +2,18 @@
   "posts": [
     {
       "id": "1",
-      "title": "Sundar Pichai Interview 1",
+      "title": "Interview of Elon Musk",
       "body": "Discussing The Future of Tech"
     },
     {
       "id": "2",
-      "title": "Marques Reviews Tesla",
-      "body": "Tesla's latest EV review"
+      "title": "Market Society",
+      "body": "Where everything is on sale"
     },
     {
       "id": "3",
-      "title": "AI in 2024",
-      "body": "Impact on daily life"
-    },
-    {
-      "id": "0a6e",
-      "title": "New Data",
-      "body": "New Body"
+      "title": "Artificial Intelligence",
+      "body": "Beginning of Post-Human Era"
     }
   ],
   "fruits": [
