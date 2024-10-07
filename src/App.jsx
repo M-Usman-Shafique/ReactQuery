@@ -1,25 +1,48 @@
-import React from "react";
-import { QueryClient, QueryClientProvider } from "react-query";
-import { ReactQueryDevtools } from "react-query/devtools";
-import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
-import Home from "./Home";
-import Post from "./Post";
+import './App.css';
+import PostsTraditional from './components/PostsTraditional';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import PostsRQ from './components/PostsRQ';
+import Home from './components/Home';
+import PostDetailsRQ from './components/PostDetailsRQ';
+import PaginatedQueries from './components/PaginatedQueries';
+import InfiniteQueries from './components/InfiniteQueries';
 
 function App() {
-  const queryClient = new QueryClient();
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <Router>
-      <Routes>
-          <Route path="/" element={<Navigate to="/1" />} />
-          <Route path="/:id" element={<Home />} />
-          <Route path="/post/:id" element={<Post />} />
+    <BrowserRouter>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/posts">Traditional Posts</Link>
+            </li>
+            <li>
+              <Link to="/rq-posts">RQ Posts</Link>
+            </li>
+            <li>
+              <Link to="/paginated-fruits">Pagination</Link>
+            </li>
+            <li>
+              <Link to="/infinite-fruits">Infinite Scroll</Link>
+            </li>
+          </ul>
+        </nav>
+        <Routes>
+          <Route exact path='/' element={<Home />} />
+          <Route exact path='/posts' element={<PostsTraditional />} />
+          <Route exact path='/rq-posts' element={<PostsRQ />} />
+          <Route exact path='/rq-posts/:postId' element={<PostDetailsRQ />} />
+          <Route exact path='/paginated-fruits' element={<PaginatedQueries />} />
+          <Route exact path='/infinite-fruits' element={<InfiniteQueries />} />
         </Routes>
-      </Router>
-      <ReactQueryDevtools />
-    </QueryClientProvider>
-  );
+
+      </div>
+    </BrowserRouter>
+  )
 }
 
 export default App;
