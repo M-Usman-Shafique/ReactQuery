@@ -10,9 +10,10 @@ const PostDetailsRQ = () => {
 
     const { postId } = useParams()
 
-    const { data, isLoading, isError, error } = useQuery({
-        queryKey: ["posts", postId],
-        queryFn: () => fetchPostDetails(postId)
+    const { data: post, isLoading, isError, error } = useQuery({
+        queryKey: ["post", postId],
+        queryFn: () => fetchPostDetails(postId),
+        placeholderData: keepPreviousData
     })
 
 
@@ -24,7 +25,7 @@ const PostDetailsRQ = () => {
         return <div>{error.message}</div>
     }
 
-    const { title, body } = data?.data || {};
+    const { title, body } = post?.data || {};
 
 
     return (

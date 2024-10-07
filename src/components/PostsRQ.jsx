@@ -23,7 +23,7 @@ const PostsRQ = () => {
 
     const queryClient = useQueryClient();
 
-    const { data, isLoading, isError, error, isFetching, refetch } = useQuery({
+    const { data: posts, isLoading, isError, error, isFetching, refetch } = useQuery({
         queryKey: ["posts"],
         queryFn: fetchPosts
     })
@@ -104,7 +104,7 @@ const PostsRQ = () => {
                 />
                 <button type='submit'>Post</button>
             </form>
-            {data?.data.map(post => (
+            {posts?.data.map(post => (
                 <Link key={post.id} to={`/rq-posts/${post.id}`}>
                     <div className='post-item' key={post.id}>
                         <h3 className='post-title'>{post.title}</h3>
